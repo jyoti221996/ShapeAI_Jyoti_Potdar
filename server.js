@@ -6,19 +6,19 @@ const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
 
 
-app.get("/" , function(request, response){
-  response.sendFile(__dirname + "/index.html");
+app.get("/" , function(req, res){
+  res.sendFile(__dirname + "/index.html");
 });
 
 
-app.post("/" , function(request, response){
+app.post("/" , function(req, res){
 
   var weight = Number(req.body.weight);
   var height = Number(req.body.height);
 
   var result = (weight/(height * height));
 
-  response.send("Your BMI is " + result);
+  res.send("Your BMI is " + result);
 });
 
 
